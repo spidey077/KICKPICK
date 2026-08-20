@@ -19,13 +19,14 @@ export default function HomePage() {
           alt="Hero background"
           title="PRE OWNED KICKS"
           scrollHint="Scroll down to reveal"
+          mobileMediaZoom={1}
           useWindowScroll
         >
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-            <h1 className="mb-stack-md font-display-lg text-4xl uppercase tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[5rem]">
+            <h1 className="mb-stack-md font-display-lg text-4xl uppercase tracking-tight text-white sm:text-5xl md:text-7xl lg:text-[6.5rem]">
               PRE OWNED KICKS
             </h1>
-            <p className="mb-stack-lg max-w-2xl font-body-lg text-body-lg text-white/90">
+            <p className="mb-stack-lg max-w-3xl font-body-lg text-body-lg text-white/90 md:text-xl lg:text-2xl">
               Unleash your potential with KICKPICK.PK performance footwear. Designed for speed, precision, and the modern game.
             </p>
             <Link

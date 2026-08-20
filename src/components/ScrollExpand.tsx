@@ -34,6 +34,7 @@ export interface ScrollExpandProps {
   startRadius?: number;
   endRadius?: number;
   mediaZoom?: number;
+  mobileMediaZoom?: number;
   scrollDistance?: number;
   holdDistance?: number;
   smoothing?: number;
@@ -58,6 +59,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   startRadius = 24,
   endRadius = 0,
   mediaZoom = 1.35,
+  mobileMediaZoom,
   scrollDistance = 1.2,
   holdDistance = 0.35,
   smoothing = 0.1,
@@ -142,6 +144,12 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const setResponsiveMediaZoom = () => {
+      propsRef.current.mediaZoom = mobileMediaZoom !== undefined && window.matchMedia('(max-width: 767px)').matches
+        ? mobileMediaZoom
+        : mediaZoom;
+    };
+
     let raf = 0;
     let current = 0;
     let target = 0;
@@ -199,12 +207,14 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
     };
 
     const onResize = () => {
+      setResponsiveMediaZoom();
       measure();
       target = readProgress();
       current = target;
       applyProgress(current);
     };
 
+    setResponsiveMediaZoom();
     measure();
     target = readProgress();
     current = target;
@@ -222,7 +232,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
       window.removeEventListener('resize', onResize);
       ro.disconnect();
     };
-  }, [applyProgress, useWindowScroll]);
+  }, []);
 
   const media =
     mediaType === 'video' ? (
