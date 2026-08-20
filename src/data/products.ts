@@ -1,0 +1,200 @@
+export type Product = {
+  id: string;
+  name: string;
+  category: 'Men' | 'Kids';
+  subtitle: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  badge?: string;
+  rating: number;
+  reviews: number;
+  sizes?: string[];
+  color?: string;
+};
+
+export const products: Product[] = [
+  {
+    id: 'velocity-pro-x',
+    name: 'Velocity Pro X',
+    category: 'Men',
+    subtitle: 'Firm Ground Cleats',
+    price: 24999,
+    originalPrice: 28999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMM-b6T06Km_WGrtbSFxzPyFKOEk851cpQC5vR8jSwgIJgLz_T4XTSkBn6FJqACEBt-C1x685hA7kxSD530p5WroDyzhKspIjHtYUQDXZ72I8HVxDDH-YsH3L3robmz62whIb-Zxbjoyf8a3Ct5xpZ1BteqbJ0ZTDqi80dLyVNe_FTVdbNMB1VWooH7S4neccVkgvij3l8taUTMvrRXsEw4zOrepRiplP5i40gW8-9DlTOTd_m9V9S',
+    badge: 'NEW ARRIVAL',
+    rating: 4.5,
+    reviews: 124,
+    sizes: ['7', '8', '9', '10', '11'],
+    color: 'white',
+  },
+  {
+    id: 'precision-elite',
+    name: 'Precision Elite',
+    category: 'Men',
+    subtitle: 'Soft Ground Cleats',
+    price: 28999,
+    originalPrice: 32999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSZ45-Q0uOclzrAznLv7yAujDutiFtIMYkOhmRXILuhjUqW-4hZsQb3r3cn1j-1Is6KXc6N2CvwZ7wSsi70k3Uu2vmqNK5xQBs9n5cUGi6iN7qXmrWoDCF46DI6qmEJ9c6d1zm0kX8QBEY9_w4jhmZPst2kN3iFf31GlWqa6BNLVQ-qItoRSGI7UTmBLrdJgkNoiEchrR2xR0CHcd8oZetOWhmoQevq3MEp1XWAxC4X0_mghe5tRJ1',
+    badge: 'ELITE',
+    rating: 5,
+    reviews: 89,
+    sizes: ['8', '9', '10', '11', '12'],
+    color: 'black',
+  },
+  {
+    id: 'heritage-touch',
+    name: 'Heritage Touch',
+    category: 'Men',
+    subtitle: 'Multi-Ground Cleats',
+    price: 19999,
+    originalPrice: 23999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9A0UetKN3J_a6-iCplI2ySVBzSu0pMSFMW9Ec5akT0iGaCgghVuVwXg3lgE25Dk0BL3wQZDDz7e25JgtLI-3fHM29Nvr0I9ZNNVERiq3Lda2pKEEhJVx-_OMs8k9xOPrtYYushuLIL9m91O0TE3w4du3erSnL_n53sEMv9zEeSrunZsVW-IOO4zqOMiJmQusUDyh4MzyUF6FAQBOSCQT6zS_6szEW-FeQGbvlHDGdRfnLI8XjcK1K',
+    rating: 4,
+    reviews: 210,
+    sizes: ['7', '8', '9', '10', '11'],
+    color: 'black',
+  },
+  {
+    id: 'ignite-jr',
+    name: 'Ignite JR',
+    category: 'Kids',
+    subtitle: 'Turf Shoes',
+    price: 11999,
+    originalPrice: 13999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbOQt_h_YZuq3JMrLiaj4DpW5RRR7-GZ5qpgXKX5bnm9_bLQMzztQ5e-mdl76eVLeh8DPW-G3xsGeLU-KNBicl33hFy-sTx2GXVBIiRCMdyQ-B5D0m86YJEnCNKzxofRf8eYI0QizqE0PDWvG7U0ApoGH4Zd_9WS3wzi7kd2FY3YhRwB40mIIpAdyXuKgZ0_58xqXW3gVwnLx6dR5WB2fpqf3r9_QwuoYQb62MFVpDhWs3HIvQ2SEd',
+    badge: 'KIDS',
+    rating: 4.5,
+    reviews: 67,
+    sizes: ['1', '2', '3', '4'],
+    color: 'orange',
+  },
+  {
+    id: 'viper-strike-elite-fg',
+    name: 'Viper Strike Elite FG',
+    category: 'Men',
+    subtitle: 'Firm Ground Football Boot',
+    price: 21999,
+    originalPrice: 25999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAmlzq3Nmi1rKsYXA6SiX7HG63aWZrAP49G2Umr7q9BhrNpWxxAtERatqydLaTHC01aCc5NwKsmjJiL13zocdpuF8JNrDDsA1sYGdE3Oskgx0bP_ZOQ_X5yX7-2IqiPfaCBOAFJbzDtXd2yNBEuG35gKFE6pET_qcCoHsXCfzqQWPgGK89k4G5ezaHsAU-C8-EVRWfgCULvRBp3sclRCiWTVynpwy3ReiN9QP9X-5DaD0CUBWmsAo_Q',
+    badge: 'NEW ARRIVAL',
+    rating: 4.5,
+    reviews: 152,
+    sizes: ['7', '8', '9', '10', '11'],
+    color: 'green',
+  },
+  {
+    id: 'phantom-pro-sg',
+    name: 'Phantom Pro SG',
+    category: 'Men',
+    subtitle: 'Soft Ground Football Boot',
+    price: 18999,
+    originalPrice: 21999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSOoo9GkD8dl2FGUwidRHiBC2zeVt6YvvH63nwo8n9KOtW2mzso8M1_8ZviLWMBlSItrgpwHPFMk7jrqMWAHDIxReNV_FKaCpfnyh5pY6Ngw1ISyurG6Bs0A5izakbrtLsiYNjDmyKHIvZSV1cNRzo50dVkYM9h70HDvK6Jpt3oweE75F0PlLVBm_OWDxClzf3RTmBRDEX3hhfV6QNd3673bHABLu_9_9J9RUfQcIi-PsKlI96SGCL',
+    badge: 'ELITE',
+    rating: 5,
+    reviews: 88,
+    sizes: ['8', '9', '10', '11', '12'],
+    color: 'black',
+  },
+  {
+    id: 'aeroswift-tf',
+    name: 'AeroSwift TF',
+    category: 'Men',
+    subtitle: 'Turf Football Shoe',
+    price: 14999,
+    originalPrice: 16999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2e8IvYFbNsDnXWabIqavLInXRBaL-2xs-BwTDNpQntCX0Hwa9ATNlJN_GSC0aPaoQneRF94N_5dfz5mQcGLc8n3iLIktn384H4MjNUCCYkgqLkERuL6L2P1_zHouVDEsqnfdahIq6uMnRP3g6iUiv82G--WX7hX7R9Kp2KKbZnk9Ll6CyO1o644hA8ZDnLSQXeopPz8tOTuDE7oMAuvcO3UyGuNqZs2iWg8sEmmUjasJdoFpvsuNw',
+    rating: 4,
+    reviews: 71,
+    sizes: ['7', '8', '9', '10', '11'],
+    color: 'green',
+  },
+  {
+    id: 'heritage-touch-ic',
+    name: 'Heritage Touch IC',
+    category: 'Men',
+    subtitle: 'Indoor Court Football Shoe',
+    price: 12999,
+    originalPrice: 14999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDYP7MHSxQITyltfhYpU6-Zg6dt5yfn1r6yJqZYsW3HJ9bHHyDqUvs6MKmw3NUUbzUqZyfqtUtXbFLJqfYQH7O0QWV4MNsOr7H-b7tIrGmJsd9bdAGBw70FLY_lAJxBLi2lZM4C2jibA4rK6NuQ-v3PiJRwuc4hpVIKvS6ORJG1t709YUZKKNDL-FVJAPeSjCG_ZpVYlmVsY3FbQLmzcB3sdeViPp5ludHm8BrohvNf-vgvREaIkVbG',
+    rating: 3.5,
+    reviews: 63,
+    sizes: ['7', '8', '9', '10', '11'],
+    color: 'white',
+  },
+  {
+    id: 'vaporx-speed-kids-fg',
+    name: 'VaporX Speed Kids FG',
+    category: 'Kids',
+    subtitle: 'Firm Ground (FG)',
+    price: 8999,
+    originalPrice: 10999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFaC72QXBEwhh6uZTKwy87bnNSxjzGwMNehxQCuZWI63qq3j6TlTsJShdROOaiG_8EufVfpM71PNAg2NPUKJOfiDWRziQBVNc5CcVGKOjYQtaiElIddjZmgtYGyQNWT1wAx7DxvrWywTW36l1UbPQWVVN_QfnNL3jgdYjdQOhaPHUo1WCMFdy5rkEq-zyfdewVk4qUjKU80yLhOAqH4qDRyLa2Xcl-A19yaAjjTC5xKEVX1dV-RMTO',
+    badge: 'NEW ARRIVAL',
+    rating: 4,
+    reviews: 118,
+    sizes: ['1', '2', '3', '4', '5'],
+    color: 'yellow',
+  },
+  {
+    id: 'phantom-strike-junior-ag',
+    name: 'Phantom Strike Junior AG',
+    category: 'Kids',
+    subtitle: 'Artificial Grass (AG)',
+    price: 10999,
+    originalPrice: 12999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzUY9HyJ2s3i1QQPaoxDI0Qz3rtXicGMjL3evFSE4tWjic-CQOiBDex3rdeLQ6d-cSzpQW7FzoP9qwEKfLynWwVR5FAeHGj9WxsayeeRRlJJDyQq7sjhrdu1fx7FQW91Q9GbyU5tQkWTUVoPh-jDDXs79d1SyqMOJW3zQhADD5bYr03Y0JIojfwjKWc7A6cpRBqfeJWLKl-Gvgm1PZHaS_9CVml2nOcydTxwCf-aJEiFLAytT-i9JY',
+    badge: 'ELITE',
+    rating: 5,
+    reviews: 145,
+    sizes: ['2', '3', '4', '5', '6'],
+    color: 'black',
+  },
+  {
+    id: 'aerocontrol-in-kids',
+    name: 'AeroControl IN Kids',
+    category: 'Kids',
+    subtitle: 'Indoor (IN)',
+    price: 6999,
+    originalPrice: 8999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDud4wxMptEmpBCTUM4ufwCezummX5bDHmW1-ivS08pbQefSV4tBv5PUgSQASzbcfFLrLJhJG5iRHekcn6L1gC3L9oMDTITBHfnRJYzFdwld32WgXzynk0b1qZpDP1HrExL3wSqRd5L6mZdRYpwAuLgeeiUU-07mAVlRn6LOgAnShAEhZeq_wPRbbe60CIEGPF8tdaIVLv4C1HvyaiJyCchzesMAj3k7-hVhB1mrx7tREair-m-OYc8',
+    rating: 3,
+    reviews: 44,
+    sizes: ['1', '2', '3', '4'],
+    color: 'orange',
+  },
+  {
+    id: 'velocity-pro-fg-youth',
+    name: 'Velocity Pro FG Youth',
+    category: 'Kids',
+    subtitle: 'Firm Ground (FG)',
+    price: 9999,
+    originalPrice: 11999,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA5iYnuMH2Y0ZyiKMQ6Byb-W-VRi8ijRVdBINwDyix84OHNfXWV7TJAKXMOOWij7LViBnIDaJ_GegWrgnq1HzdA2QzeDki7vbags5fLp5oUTqLHbxkZhn5ilt4USpfrUm4vIbVF6Gqg52bHsCX0c43U-S8NsD-Ss2OIDUmWGXETXm6OWmc7Ll037z4h-cDmOpI0MDkWPpVBu7lxbpS8MYC_W3V_imYITA04vLjhyBvNf9AzeTjJGdPT',
+    badge: 'KIDS',
+    rating: 4,
+    reviews: 93,
+    sizes: ['2', '3', '4', '5', '6'],
+    color: 'blue',
+  },
+];
+
+export const homeFeaturedProducts = products.slice(0, 4);
+export const menProducts = products.filter((p) => p.category === 'Men');
+export const kidsProducts = products.filter((p) => p.category === 'Kids');
+
+export const reviews = [
+  {
+    name: 'Zain',
+    quote: 'Absolutely amazing quality and very good service. Definitely happy with the purchase.',
+  },
+  {
+    name: 'Tanzeel',
+    quote: 'Really good experience overall. Fast response and smooth communication. Highly recommended.',
+  },
+  {
+    name: 'Sibghat',
+    quote: 'Very good service and the product was as expected. Would definitely order again.',
+  },
+];
