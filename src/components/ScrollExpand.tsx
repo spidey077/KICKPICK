@@ -1,6 +1,8 @@
 'use client';
 import { useCallback, useEffect, useRef } from 'react';
+import { Lottie } from 'lottie-react';
 import type { CSSProperties, ReactNode } from 'react';
+import scrollDownAnimation from '@/data/scroll-down.json';
 
 const clamp = (v: number, a: number, b: number): number => (v < a ? a : v > b ? b : v);
 
@@ -82,6 +84,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const scrimRef = useRef<HTMLDivElement | null>(null);
   const hintRef = useRef<HTMLDivElement | null>(null);
+  const isMobileRef = useRef(false);
 
   const propsRef = useRef<Required<Pick<ScrollExpandProps, ConfigKey>>>(
     {} as Required<Pick<ScrollExpandProps, ConfigKey>>
@@ -126,7 +129,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
     }
 
     if (hintRef.current) {
-      const gone = smoothstep(0, 0.12, p);
+      const gone = isMobileRef.current ? 0 : smoothstep(0, 0.12, p);
       hintRef.current.style.opacity = `${1 - gone}`;
       hintRef.current.style.transform = `translate3d(0, ${8 * gone}px, 0)`;
     }
@@ -161,6 +164,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const setResponsiveState = () => {
       isMobile = desktopOnly && window.matchMedia('(max-width: 767px)').matches;
+      isMobileRef.current = isMobile;
       propsRef.current.mediaZoom = isMobile ? 1 : (mobileMediaZoom ?? mediaZoom);
     };
 
@@ -275,7 +279,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
         <div ref={stageRef} className="sticky top-0 w-full overflow-hidden [--se-title-size:4rem]">
           <div
             ref={frameRef}
-            className="absolute inset-0 [clip-path:inset(21%_29%_21%_29%_round_24px)] [will-change:clip-path]"
+            className="absolute inset-0 [clip-path:inset(21%_29%_21%_29%_round_24px)] max-md:[clip-path:inset(0%_0%_0%_0%_round_0px)] [will-change:clip-path]"
           >
             {media}
             <div
@@ -302,13 +306,19 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
           {scrollHint ? (
             <div
               ref={hintRef}
-              className="absolute inset-x-0 bottom-10 flex flex-col items-center justify-center gap-3 text-center text-[0.8125rem] tracking-[0.02em] text-black/80 pointer-events-none [will-change:opacity,transform]"
+              className="absolute inset-x-0 bottom-6 flex flex-col items-center justify-center gap-2 text-center text-[0.68rem] tracking-[0.02em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] pointer-events-none [will-change:opacity,transform] md:bottom-10 md:gap-3 md:text-[0.8125rem] md:text-black/80 md:drop-shadow-none"
             >
-              <span className="uppercase font-medium tracking-widest">{scrollHint}</span>
-              <div className="flex h-10 w-10 animate-bounce items-center justify-center rounded-full bg-black/5 backdrop-blur-sm border border-black/10">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-black">
-                  <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
+              <span className="rounded-full border border-white/40 bg-black/25 px-4 py-2 uppercase font-semibold tracking-[0.18em] backdrop-blur-sm md:border-0 md:bg-transparent md:px-0 md:py-0 md:font-medium md:tracking-widest">
+                {scrollHint}
+              </span>
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-black/30 backdrop-blur-sm md:h-10 md:w-10 md:border-black/10 md:bg-black/5">
+                <Lottie
+                  src={scrollDownAnimation}
+                  loop
+                  autoplay
+                  className="h-8 w-8"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           ) : null}
