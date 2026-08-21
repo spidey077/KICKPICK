@@ -34,7 +34,7 @@ export default function HomePage() {
           src="/Hero%201.webp"
           alt="Hero background"
           title="PRE OWNED KICKS"
-          scrollHint="Scroll to explore"
+          scrollHint=""
           desktopOnly
           useWindowScroll
         >

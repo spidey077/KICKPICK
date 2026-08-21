@@ -44,7 +44,9 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-white/20 bg-surface-container-lowest/40 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+      <nav
+        className={`${pathname === '/' ? 'absolute left-0 top-0 md:sticky md:top-0' : 'sticky top-0'} z-50 w-full border-b border-white/20 bg-surface-container-lowest/40 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)]`}
+      >
         <div className="relative mx-auto flex w-full max-w-container-max items-center justify-between px-margin-mobile py-stack-md md:px-margin-desktop">
           <div className="hidden md:flex items-center justify-start">
             <Link href="/" aria-label="KICKPICK.PK home" className="flex items-center text-on-surface">

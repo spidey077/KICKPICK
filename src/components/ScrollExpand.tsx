@@ -56,7 +56,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   poster = '',
   alt = '',
   title = '',
-  scrollHint = '',
+  scrollHint,
   startWidth = 42,
   startHeight = 58,
   startRadius = 24,
@@ -303,20 +303,25 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
               {title}
             </div>
           ) : null}
-          {scrollHint ? (
+          {scrollHint !== undefined ? (
             <div
               ref={hintRef}
               className="absolute inset-x-0 bottom-6 flex flex-col items-center justify-center gap-2 text-center text-[0.68rem] tracking-[0.02em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] pointer-events-none [will-change:opacity,transform] md:bottom-10 md:gap-3 md:text-[0.8125rem] md:text-black/80 md:drop-shadow-none"
             >
-              <span className="rounded-full border border-white/40 bg-black/25 px-4 py-2 uppercase font-semibold tracking-[0.18em] backdrop-blur-sm md:border-0 md:bg-transparent md:px-0 md:py-0 md:font-medium md:tracking-widest">
-                {scrollHint}
-              </span>
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-black/30 backdrop-blur-sm md:h-10 md:w-10 md:border-black/10 md:bg-black/5">
+              {scrollHint ? (
+                <span className="rounded-full border border-white/40 bg-black/25 px-4 py-2 uppercase font-semibold tracking-[0.18em] backdrop-blur-sm md:border-0 md:bg-transparent md:px-0 md:py-0 md:font-medium md:tracking-widest">
+                  {scrollHint}
+                </span>
+              ) : null}
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-black/30 backdrop-blur-sm md:h-10 md:w-10 md:border-black/10 md:bg-black/5">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute z-20 h-5 w-5 text-white md:text-black">
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
                 <Lottie
                   src={scrollDownAnimation}
                   loop
                   autoplay
-                  className="h-8 w-8"
+                  className="relative z-10 h-8 w-8 opacity-35"
                   aria-hidden="true"
                 />
               </div>
