@@ -314,7 +314,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
                 </span>
               ) : null}
               <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-black/30 backdrop-blur-sm md:h-10 md:w-10 md:border-black/10 md:bg-black/5">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute z-20 h-5 w-5 text-white md:text-black">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute z-20 h-5 w-5 animate-bounce text-white md:text-black">
                   <path d="M12 5v14M19 12l-7 7-7-7" />
                 </svg>
                 <Lottie
