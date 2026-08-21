@@ -19,7 +19,7 @@ export default function HomePage() {
           alt="Hero background"
           title="PRE OWNED KICKS"
           scrollHint="Scroll down to reveal"
-          mobileMediaZoom={1}
+          desktopOnly
           useWindowScroll
         >
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">

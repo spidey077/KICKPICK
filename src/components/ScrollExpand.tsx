@@ -41,6 +41,7 @@ export interface ScrollExpandProps {
   overlayScrim?: number;
   useWindowScroll?: boolean;
   enabled?: boolean;
+  desktopOnly?: boolean;
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
@@ -66,6 +67,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   overlayScrim = 0.45,
   useWindowScroll = false,
   enabled = true,
+  desktopOnly = false,
   children,
   className = '',
   style,
@@ -155,13 +157,19 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
     let target = 0;
     let stageH = 0;
     let running = false;
+    let isMobile = false;
+
+    const setResponsiveState = () => {
+      isMobile = desktopOnly && window.matchMedia('(max-width: 767px)').matches;
+      propsRef.current.mediaZoom = isMobile ? 1 : (mobileMediaZoom ?? mediaZoom);
+    };
 
     const measure = () => {
       const c = propsRef.current;
       stageH = c.useWindowScroll ? window.innerHeight : root.clientHeight;
       if (stageH <= 0) return;
       stage.style.height = `${stageH}px`;
-      track.style.height = `${stageH * (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
+      track.style.height = `${stageH * (isMobile ? 1 : 1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
 
       const w = root.clientWidth || stageH;
       stage.style.setProperty('--se-title-size', `${clamp(w * 0.075, 20, 84)}px`);
@@ -169,7 +177,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const readProgress = () => {
       const c = propsRef.current;
-      if (!c.enabled) return 1;
+      if (!c.enabled || isMobile) return 1;
       const span = stageH * Math.max(0.01, c.scrollDistance);
       if (c.useWindowScroll) {
         const top = track.getBoundingClientRect().top;
@@ -207,14 +215,14 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
     };
 
     const onResize = () => {
-      setResponsiveMediaZoom();
+      setResponsiveState();
       measure();
       target = readProgress();
       current = target;
       applyProgress(current);
     };
 
-    setResponsiveMediaZoom();
+    setResponsiveState();
     measure();
     target = readProgress();
     current = target;
