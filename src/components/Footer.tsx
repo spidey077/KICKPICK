@@ -41,7 +41,17 @@ export function Footer() {
           <h4 className="mb-5 font-label-caps text-label-caps font-bold tracking-[0.16em] text-primary">INFO</h4>
           <ul className="space-y-4">
             <li><Link href="/policies" className="text-lg font-bold text-white/75 transition-colors hover:text-primary">Policies</Link></li>
-            <li><a href="https://wa.me/923345728257?text=Hi%20KickPick%2C%20I%20want%20to%20ask%20a%20question." target="_blank" rel="noreferrer" className="text-lg font-bold text-white/75 transition-colors hover:text-primary">Support</a></li>
+            <li>
+              <a
+                href="https://wa.me/923345728257?text=Hi%20KickPick%2C%20I%20want%20to%20ask%20a%20question."
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-lg font-bold text-white/75 transition-colors hover:text-primary"
+              >
+                <Icon name="whatsapp" className="h-5 w-5 text-primary" />
+                Support
+              </a>
+            </li>
           </ul>
         </div>
 

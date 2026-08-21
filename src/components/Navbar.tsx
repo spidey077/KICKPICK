@@ -55,8 +55,8 @@ export function Navbar() {
           <div className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-7 md:flex">
             {navItems.map((item) => {
               const active = item.external ? false : isActiveLink(item.href);
-              const linkClasses = `nav-label-outline relative pb-1 uppercase font-label-caps text-[0.78rem] font-bold tracking-[0.18em] transition-colors duration-200 md:text-[0.92rem] ${
-                active ? 'border-b-2 border-primary text-white' : 'text-white hover:text-white'
+              const linkClasses = `relative pb-1 uppercase font-label-caps text-[0.78rem] font-bold tracking-[0.18em] transition-colors duration-200 md:text-[0.92rem] ${
+                active ? 'border-b-2 border-primary text-black' : 'text-black hover:text-black'
               }`;
 
               return item.external ? (
@@ -121,7 +121,14 @@ export function Navbar() {
             <div className="h-10 w-10" />
           </div>
 
-          <div className="hidden items-center gap-3 md:flex" />
+          <div className="hidden items-center gap-3 md:flex">
+            <Link
+              href="/#collections"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold uppercase text-black shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-fixed"
+            >
+              SHOP NOW <Icon name="arrow-forward" className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </nav>
 

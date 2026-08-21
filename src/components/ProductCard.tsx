@@ -28,9 +28,10 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
     <motion.article
       initial={{ opacity: 0, y: 50, scale: 0.95, filter: 'blur(10px)' }}
       whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+      whileHover={{ y: -6, scale: 1.01 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="group flex flex-col overflow-hidden rounded-xl border border-outline-variant/30 bg-surface shadow-soft"
+      className="group flex flex-col overflow-hidden rounded-xl border border-outline-variant/30 bg-surface shadow-soft transition-[border-color,box-shadow] duration-300 hover:border-primary/60 hover:shadow-[0_16px_32px_rgba(25,28,30,0.14)]"
     >
       <div className="relative h-64 overflow-hidden bg-surface-container-lowest p-6">
         {product.badge ? (
